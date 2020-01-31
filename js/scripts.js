@@ -12,6 +12,14 @@ Pizza.prototype.pizzaSize = function() {
   return size
 }
 
+Pizza.prototype.pizzaToppings = function() {
+  var toppings = []
+  $("input[name='topping']:checked").each(function() {
+    toppings.push($(this).val());
+  });
+  console.log(toppings);
+  return toppings
+}
 
 // User Interface Logic ------
 var pizza = new Pizza ('size', 'toppings', 'price')
@@ -19,6 +27,7 @@ var pizza = new Pizza ('size', 'toppings', 'price')
 $(document).ready(function() {
   $("form#size").submit(function(event) {
     pizza.size = pizza.pizzaSize();
+    pizza.toppings = pizza.pizzaToppings();
     console.log(pizza.size);
 
 

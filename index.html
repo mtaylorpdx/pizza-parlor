@@ -10,24 +10,38 @@
 
   <body>
     <div class ="container">
-      <form id="size">
-        <div class="radio">
-          <label>
-            <input type="radio" name="size" value="small">Small</label>
-          </label>
-        </div>
-        <div class="radio">
-          <label>
-            <input type="radio" name="size" value="medium">Medium</label>
-          </label>
-        </div>
-        <div class="radio">
-          <label>
-            <input type="radio" name="size" value="large">Large</label>
-          </label>
-        </div>
-        <button id="submit" class="btn btn-primary">Submit</button>
-      </form>
+
+    <!-- Radio button form for size -->
+      <div class ="row">
+        <form id="size">
+          <h3>Size:</h3>
+          <div class="radio">
+            <label>
+              <input type="radio" name="size" value="small">Small</label>
+            </label>
+          </div>
+          <div class="radio">
+            <label>
+              <input type="radio" name="size" value="medium">Medium</label>
+            </label>
+          </div>
+          <div class="radio">
+            <label>
+              <input type="radio" name="size" value="large">Large</label>
+            </label>
+          </div>
+          <button id="submit" class="btn btn-primary">Submit</button>
+        </form>
+      </div>
+
+    <!-- Checkbox form for toppings -->
+      <div class ="row">
+        <form id="toppings">
+          <h3>Toppings:</h3>
+          <input type="checkbox" name="topping" value ="mushroom">Mushrooms<br>
+          <input type="checkbox" name="topping" value ="olive">Olives<br>
+        </form>
+      </div>
 
     </div>
   </body>
