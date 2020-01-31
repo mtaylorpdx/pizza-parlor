@@ -7,7 +7,9 @@ function Pizza (size, toppings, price) {
 }
 
 Pizza.prototype.pizzaSize = function() {
-
+  var size = $("input:radio[name=size]:checked").val();
+  console.log(size);
+  return size
 }
 
 
@@ -16,7 +18,10 @@ var pizza = new Pizza ('size', 'toppings', 'price')
 
 $(document).ready(function() {
   $("form#size").submit(function(event) {
-    event.preventDefault();
+    pizza.size = pizza.pizzaSize();
+    console.log(pizza.size);
 
+
+    event.preventDefault();
   });
 });
