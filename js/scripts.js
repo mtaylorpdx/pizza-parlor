@@ -43,6 +43,11 @@ Pizza.prototype.toppingsPrice = function() {
   return toppingsTotal
 }
 
+Pizza.prototype.priceTotal = function() {
+  var report = pizza.sizePrice() + pizza.toppingsPrice();
+  alert(report);
+}
+
 // User Interface Logic ------
 var pizza = new Pizza ('size', 'toppings', 'price')
 
@@ -50,12 +55,12 @@ $(document).ready(function() {
   $("form#size").submit(function(event) {
     pizza.size = pizza.pizzaSize();
     pizza.toppings = pizza.pizzaToppings();
-    pizza.pizzaPrice();
-    pizza.toppingsPrice();
+    // pizza.pizzaPrice();
+    // console.log(pizzaPrice);
+    // pizza.toppingsPrice();
+    // pizza.priceTotal();
     console.log(pizza.size);
-    console.log(pizza.toppings);
     console.log(pizza);
-    console.log(toppingsTotal);
     event.preventDefault();
   });
 });
