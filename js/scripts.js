@@ -21,6 +21,20 @@ Pizza.prototype.pizzaToppings = function() {
   return toppings
 }
 
+Pizza.prototype.pizzaPrice = function() {
+  if (pizza.size === 'small') {
+    console.log("small price");
+    pizza.price = 8
+  } else if (pizza.size === 'medium') {
+    pizza.price = 10
+  } else {
+    pizza.price = 12
+  }
+  
+  console.log (pizza.price)
+  return pizza.price
+}
+
 // User Interface Logic ------
 var pizza = new Pizza ('size', 'toppings', 'price')
 
@@ -28,9 +42,10 @@ $(document).ready(function() {
   $("form#size").submit(function(event) {
     pizza.size = pizza.pizzaSize();
     pizza.toppings = pizza.pizzaToppings();
+    pizza.pizzaPrice();
     console.log(pizza.size);
-
-
+    console.log(pizza.toppings);
+    console.log(pizza);
     event.preventDefault();
   });
 });
