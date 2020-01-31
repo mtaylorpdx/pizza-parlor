@@ -30,9 +30,17 @@ Pizza.prototype.pizzaPrice = function() {
   } else {
     pizza.price = 12
   }
-  
   console.log (pizza.price)
   return pizza.price
+}
+
+Pizza.prototype.toppingsPrice = function() {
+  for (var index = 0; index < (pizza.toppings).length; index++) {
+    console.log(index)
+    var toppingsTotal = index + 1
+  }
+  console.log(toppingsTotal);
+  return toppingsTotal
 }
 
 // User Interface Logic ------
@@ -43,9 +51,11 @@ $(document).ready(function() {
     pizza.size = pizza.pizzaSize();
     pizza.toppings = pizza.pizzaToppings();
     pizza.pizzaPrice();
+    pizza.toppingsPrice();
     console.log(pizza.size);
     console.log(pizza.toppings);
     console.log(pizza);
+    console.log(toppingsTotal);
     event.preventDefault();
   });
 });
