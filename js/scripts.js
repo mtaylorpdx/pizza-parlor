@@ -44,7 +44,7 @@ Pizza.prototype.toppingsPrice = function() {
 }
 
 Pizza.prototype.priceTotal = function() {
-  var report = pizza.sizePrice() + pizza.toppingsPrice();
+  var report = pizza.pizzaPrice() + pizza.toppingsPrice();
   alert(report);
 }
 
@@ -55,6 +55,7 @@ $(document).ready(function() {
   $("form#size").submit(function(event) {
     pizza.size = pizza.pizzaSize();
     pizza.toppings = pizza.pizzaToppings();
+    pizza.priceTotal();
     // pizza.pizzaPrice();
     // console.log(pizzaPrice);
     // pizza.toppingsPrice();
