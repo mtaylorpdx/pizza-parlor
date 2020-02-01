@@ -41,7 +41,7 @@ Pizza.prototype.toppingsPrice = function() {
 
 Pizza.prototype.priceTotal = function() {
   var total = pizza.pizzaPrice() + pizza.toppingsPrice();
-  $("#output").append("Your total comes to $" + total);
+  $(".outputTotal").append(total);
 }
 
 // User Interface Logic ------
@@ -58,6 +58,7 @@ $(document).ready(function() {
     event.preventDefault();
     pizza.toppings = pizza.pizzaToppings();
     pizza.priceTotal();
+    $(".outputSize").append(pizza.size);
     $("#output").fadeIn();
     $("#size").fadeOut();
     $("#toppings").fadeOut();
