@@ -4,6 +4,8 @@
 
 #### By _Matt Taylor_
 
+[Github Pages](https://mtaylorpdx.github.io/pizza-parlor)
+
 ## Description
 
 _This project application is a mock pizza ordering webpage._
@@ -16,8 +18,6 @@ _This project application is a mock pizza ordering webpage._
 | Calculate the cost of a pizza size | Medium | $10 |
 | Calculate the total cost of toppings  | Select two toppings | $4 |
 | Calculate total cost of pizza | medium, two toppings | $14 |
-
-
 
 ## Setup/Installation Requirements
 
