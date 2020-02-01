@@ -1,3 +1,7 @@
+h2 {
+  text-align: center;
+}
+
 .jumbotron {
   background-color: #bf8d3c !important;
   text-align: center;
@@ -5,4 +9,8 @@
 
 #toppings, #output {
   display: none;
+}
+
+#reload {
+  text-align: right;
 }

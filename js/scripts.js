@@ -62,7 +62,7 @@ $(document).ready(function() {
     $("#toppings").fadeOut();
   });
 
-  $("#reload").change(function(event) {
+  $("#reload").click(function(event) {
     event.preventDefault();
     document.location.reload(true);
   });
