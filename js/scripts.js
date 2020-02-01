@@ -33,13 +33,12 @@ Pizza.prototype.pizzaPrice = function() {
 
 Pizza.prototype.toppingsPrice = function() {
   for (var index = 0; index < (pizza.toppings).length; index++) {
-    var toppingsTotal = index + 1
+    var toppingsTotal = 0 + (index + 1)
   }
   return toppingsTotal
 }
 
 Pizza.prototype.priceTotal = function() {
-  console.log(pizza.toppingsPrice);
   var total = pizza.pizzaPrice() + pizza.toppingsPrice();
   $("#output").append("Your total comes to $" + total);
 }
@@ -51,18 +50,20 @@ $(document).ready(function() {
   $("form#size").change(function(event) {
     event.preventDefault();
     pizza.size = pizza.pizzaSize();
-    console.log(pizza.size);
+    $("#toppings").fadeIn();
   });
 
   $("form").submit(function(event) {
     event.preventDefault();
     pizza.toppings = pizza.pizzaToppings();
     pizza.priceTotal();
+    $("#output").fadeIn();
+    $("#size").fadeOut();
+    $("#toppings").fadeOut();
+  });
 
-    $("#reset").click(function() {
-      document.location.reload(true);
-    });
-
-
+  $("#reload").change(function(event) {
+    event.preventDefault();
+    document.location.reload(true);
   });
 });
