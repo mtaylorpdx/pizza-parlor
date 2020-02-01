@@ -33,7 +33,7 @@ Pizza.prototype.pizzaPrice = function() {
 
 Pizza.prototype.toppingsPrice = function() {
   for (var index = 0; index < (pizza.toppings).length; index++) {
-    var toppingsTotal = 0 + (index + 1) - 1;
+    var toppingsTotal = 0 + ((index + 1) * 2) - 2;
   }
   console.log(toppingsTotal);
   return toppingsTotal
