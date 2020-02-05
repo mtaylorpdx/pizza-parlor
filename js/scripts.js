@@ -1,14 +1,13 @@
 // Business Logic ------------
-
-function Pizza (size, toppings, price) {
-  this.size = size;
+function Pizza () {
+  this.size = "";
   this.toppings = [];
   this.price = 0;
 }
 
 Pizza.prototype.pizzaSize = function() {
   var size = $("input:radio[name=size]:checked").val();
-  return size
+  this.size = size;
 }
 
 Pizza.prototype.pizzaToppings = function() {
@@ -16,46 +15,46 @@ Pizza.prototype.pizzaToppings = function() {
   $("input[name='topping']:checked").each(function() {
     toppings.push($(this).val());
   });
-  return toppings
+  this.toppings = toppings;
 }
 
 Pizza.prototype.pizzaPrice = function() {
-  if (pizza.size === 'small') {
-    pizza.price = 8
-  } else if (pizza.size === 'medium') {
-    pizza.price = 10
+  if (this.size === 'small') {
+    this.price = 8
+  } else if (this.size === 'medium') {
+    this.price = 10
   } else {
-    pizza.price = 12
+    this.price = 12
   }
-  return pizza.price
 }
 
 Pizza.prototype.toppingsPrice = function() {
-  for (var index = 0; index < (pizza.toppings).length; index++) {
-    var toppingsTotal = 0 + ((index + 1) * 2) - 2;
+  for (var i = 0; i < (this.toppings.length); i++) {
+    var toppingsTotal = 0 + ((i + 1) * 2) - 2;
   }
-  return toppingsTotal
+  console.log(toppingsTotal)
+  this.price += toppingsTotal;
 }
 
 Pizza.prototype.priceTotal = function() {
-  var total = pizza.pizzaPrice() + pizza.toppingsPrice();
-  $(".outputTotal").append(total);
+ 
 }
 
 // User Interface Logic ------
-var pizza = new Pizza ('size', 'toppings', 'price');
 
 $(document).ready(function() {
+  var pizza = new Pizza ();
   $("form#size").change(function(event) {
     event.preventDefault();
-    pizza.size = pizza.pizzaSize();
+    pizza.pizzaSize();
     $("#toppings").fadeIn();
   });
 
   $("form").submit(function(event) {
     event.preventDefault();
-    pizza.toppings = pizza.pizzaToppings();
+    pizza.pizzaToppings();
     pizza.priceTotal();
+    $(".outputTotal").append(pizza.price);
     $(".outputSize").append(pizza.size);
     $("#output").fadeIn();
     $("#size").fadeOut();
