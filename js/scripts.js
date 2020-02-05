@@ -10,14 +10,6 @@ Pizza.prototype.pizzaSize = function() {
   this.size = size;
 }
 
-Pizza.prototype.pizzaToppings = function() {
-  var toppings = [0]
-  $("input[name='topping']:checked").each(function() {
-    toppings.push($(this).val());
-  });
-  this.toppings = toppings;
-}
-
 Pizza.prototype.pizzaPrice = function() {
   if (this.size === 'small') {
     this.price = 8
@@ -28,16 +20,16 @@ Pizza.prototype.pizzaPrice = function() {
   }
 }
 
-Pizza.prototype.toppingsPrice = function() {
-  for (var i = 0; i < (this.toppings.length); i++) {
-    var toppingsTotal = 0 + ((i + 1) * 2) - 2;
-  }
-  console.log(toppingsTotal)
-  this.price += toppingsTotal;
+Pizza.prototype.pizzaToppings = function() {
+  var toppings = [0]
+  $("input[name='topping']:checked").each(function() {
+    toppings.push($(this).val());
+  });
+  this.toppings = toppings;
 }
 
-Pizza.prototype.priceTotal = function() {
- 
+Pizza.prototype.toppingsPrice = function() {
+  this.price = (this.price + (this.toppings.length * 2) - 2);
 }
 
 // User Interface Logic ------
@@ -52,10 +44,11 @@ $(document).ready(function() {
 
   $("form").submit(function(event) {
     event.preventDefault();
+    pizza.pizzaPrice();
     pizza.pizzaToppings();
-    pizza.priceTotal();
-    $(".outputTotal").append(pizza.price);
+    pizza.toppingsPrice();
     $(".outputSize").append(pizza.size);
+    $(".outputTotal").append(pizza.price);
     $("#output").fadeIn();
     $("#size").fadeOut();
     $("#toppings").fadeOut();
